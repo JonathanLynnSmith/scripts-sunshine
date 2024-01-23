@@ -2,6 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Open Tool",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/scripts/switch-display.ps1",
+            "args": ["-OpenTool"],
+            "cwd": "${workspaceFolder}",
+        },
+        {
             "name": "HD",
             "type": "PowerShell",
             "request": "launch",
@@ -15,14 +23,6 @@
             "request": "launch",
             "script": "${workspaceFolder}/scripts/switch-display.ps1",
             "args": ["-QHD"],
-            "cwd": "${workspaceFolder}",
-        },
-        {
-            "name": "QHD Dummy",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/scripts/switch-display.ps1",
-            "args": ["-QHD_Dummy"],
             "cwd": "${workspaceFolder}",
         },
         {
