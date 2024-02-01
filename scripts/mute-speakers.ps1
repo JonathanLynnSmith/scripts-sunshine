@@ -4,11 +4,10 @@ param (
     [switch]$Undo
 )
 
-$resourcesPath = "$PSScriptRoot\..\resources\"
-$volumeToolPath = "$resourcesPath\SoundVolumeView\SoundVolumeView.exe"
-
-$muteSpeakersCommand = "$volumeToolPath /mute Speakers"
-$unmuteSpeakersCommand = "$volumeToolPath /unmute Speakers"
+$config = Get-Content -Path "$PSScriptRoot\..\config.json" | ConvertFrom-Json
+$volumeToolPath = $config.SoundVolumeViewPath
+$muteSpeakersCommand = ". ""$volumeToolPath"" /mute Speakers"
+$unmuteSpeakersCommand = ". ""$volumeToolPath"" /unmute Speakers"
 
 function Main{
     if ($Undo) {
@@ -27,14 +26,13 @@ function UnMuteSpeakers {
     RunCommand -Command $unmuteSpeakersCommand
 }
 
+Main
+
 function RunCommand {
     param (
         [string]$Command
     )
-
-    Write-Host $Command
-    Invoke-Expression $Command
+        Write-Host "> $Command"
+        Invoke-Expression $Command
+        Start-Sleep 1
 }
-
-Main
-

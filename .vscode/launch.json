@@ -29,7 +29,7 @@
             "name": "Open Monitor Tool",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${workspaceFolder}/scripts/switch-display.ps1",
+            "script": "${workspaceFolder}/scripts/switch-displays.ps1",
             "args": ["-OpenTool"],
             "cwd": "${workspaceFolder}",
         }

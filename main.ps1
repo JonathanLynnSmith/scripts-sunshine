@@ -1,14 +1,12 @@
-
-
 param (
     [switch]$HD,
     [switch]$QHD,
     [switch]$Undo
 )
 
-$switchDisplaysPath = "$PSScriptRoot\scripts\switch-display.ps1"
-$muteSpeakersPath = "$PSScriptRoot\scripts\mute-speakers.ps1"
-$killSteamPath = "$PSScriptRoot\scripts\switch-display.ps1"
+$switchDisplaysPath = "$PSScriptRoot\\scripts\\switch-displays.ps1"
+$muteSpeakersPath = "$PSScriptRoot\\scripts\\mute-speakers.ps1"
+$killSteamPath = "$PSScriptRoot\\scripts\\kill-steam.ps1"
 
 
 if ($HD) {
@@ -22,6 +20,7 @@ elseif ($QHD) {
     Invoke-Expression "$switchDisplaysPath -QHD"
 }
 elseif($Undo){
+    Invoke-Expression "$switchDisplaysPath -Undo"
     Invoke-Expression "$switchDisplaysPath -Undo"
     Invoke-Expression "$muteSpeakersPath -Undo"
 }
